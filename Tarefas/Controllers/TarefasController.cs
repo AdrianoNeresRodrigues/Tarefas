@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Tarefas.Data;
 using Tarefas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tarefas.Controllers
 {
@@ -44,6 +45,7 @@ namespace Tarefas.Controllers
         }
 
         // GET: Tarefas/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +56,7 @@ namespace Tarefas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("TarefaId,TarefaDescricao,TarefaPrioridade,TarefaDataCriacao,TarefaDataLembrete,TarefaLembrete,TarefaDataVencimento,TarefaDataConclusao")] Tarefa tarefa)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace Tarefas.Controllers
         }
 
         // GET: Tarefas/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Tarefas == null)
@@ -86,6 +90,7 @@ namespace Tarefas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("TarefaId,TarefaDescricao,TarefaPrioridade,TarefaDataCriacao,TarefaDataLembrete,TarefaLembrete,TarefaDataVencimento,TarefaDataConclusao")] Tarefa tarefa)
         {
             if (id != tarefa.TarefaId)
@@ -117,6 +122,7 @@ namespace Tarefas.Controllers
         }
 
         // GET: Tarefas/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Tarefas == null)
@@ -137,6 +143,7 @@ namespace Tarefas.Controllers
         // POST: Tarefas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Tarefas == null)
