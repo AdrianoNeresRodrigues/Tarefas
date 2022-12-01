@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Tarefas.Models.Lista>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaDataLembrete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaLembrete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListaNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListaDataLembrete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListaLembrete)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ListaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ListaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ListaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

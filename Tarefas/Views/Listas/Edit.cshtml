@@ -1,0 +1,44 @@
+﻿@model Tarefas.Models.Lista
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Lista</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ListaId" />
+            <div class="form-group">
+                <label asp-for="ListaNome" class="control-label"></label>
+                <input asp-for="ListaNome" class="form-control" />
+                <span asp-validation-for="ListaNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListaDataLembrete" class="control-label"></label>
+                <input asp-for="ListaDataLembrete" class="form-control" />
+                <span asp-validation-for="ListaDataLembrete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListaLembrete" class="control-label"></label>
+                <input asp-for="ListaLembrete" class="form-control" />
+                <span asp-validation-for="ListaLembrete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

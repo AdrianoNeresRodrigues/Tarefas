@@ -1,0 +1,60 @@
+﻿@model Tarefas.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaDescricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaDescricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaPrioridade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaPrioridade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaDataCriacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaDataCriacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaDataLembrete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaDataLembrete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaLembrete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaLembrete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaDataVencimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaDataVencimento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TarefaDataConclusao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TarefaDataConclusao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.TarefaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

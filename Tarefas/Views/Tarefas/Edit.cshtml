@@ -1,0 +1,64 @@
+﻿@model Tarefas.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tarefa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TarefaId" />
+            <div class="form-group">
+                <label asp-for="TarefaDescricao" class="control-label"></label>
+                <input asp-for="TarefaDescricao" class="form-control" />
+                <span asp-validation-for="TarefaDescricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaPrioridade" class="control-label"></label>
+                <input asp-for="TarefaPrioridade" class="form-control" />
+                <span asp-validation-for="TarefaPrioridade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaDataCriacao" class="control-label"></label>
+                <input asp-for="TarefaDataCriacao" class="form-control" />
+                <span asp-validation-for="TarefaDataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaDataLembrete" class="control-label"></label>
+                <input asp-for="TarefaDataLembrete" class="form-control" />
+                <span asp-validation-for="TarefaDataLembrete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaLembrete" class="control-label"></label>
+                <input asp-for="TarefaLembrete" class="form-control" />
+                <span asp-validation-for="TarefaLembrete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaDataVencimento" class="control-label"></label>
+                <input asp-for="TarefaDataVencimento" class="form-control" />
+                <span asp-validation-for="TarefaDataVencimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TarefaDataConclusao" class="control-label"></label>
+                <input asp-for="TarefaDataConclusao" class="form-control" />
+                <span asp-validation-for="TarefaDataConclusao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
